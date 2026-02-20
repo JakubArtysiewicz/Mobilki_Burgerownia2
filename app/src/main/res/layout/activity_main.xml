@@ -7,13 +7,61 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        android:layout_width="409dp"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="44dp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/ilosc_burgerow_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Ilość burgerów:"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="413dp"
+        android:layout_height="89dp"
+        android:layout_marginTop="72dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/malyButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mały Burger 10 zl" />
+
+        <RadioButton
+            android:id="@+id/duzyButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Duży Burger 15zł" />
+    </RadioGroup>
+
+    <RadioButton
+        android:id="@+id/serButton"
+        android:layout_width="408dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="184dp"
+        android:text="Ser + 2zł"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioButton
+        android:id="@+id/beconButton"
+        android:layout_width="413dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="232dp"
+        android:text="Bekon + 3zł"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
