@@ -4,6 +4,7 @@ import android.content.DialogInterface
 import android.os.Bundle
 import android.view.MotionEvent
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.RadioButton
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -24,39 +25,25 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val iloscBurgerow = this.findViewById<TextInputEditText>(R.id.ilosc_burgerow_input);
+
+        var iloscBurgerow = this.findViewById<TextInputEditText>(R.id.ilosc_burgerow_input).text
 
         val malyButton = this.findViewById<RadioButton>(R.id.malyButton);
         val duzyButton = this.findViewById<RadioButton>(R.id.duzyButton);
-        val serButton = this.findViewById<RadioButton>(R.id.serButton);
-        val beconButton = this.findViewById<RadioButton>(R.id.beconButton);
+        val serCheck = this.findViewById<CheckBox>(R.id.serCheck);
+        val beconCheck = this.findViewById<CheckBox>(R.id.bekonCheckBox);
 
         malyButton.tag = 10;
         duzyButton.tag = 15;
-        serButton.tag = 2;
-        beconButton.tag = 3;
+        serCheck.tag = 2;
+        beconCheck.tag = 3;
         val listOfMainRadios = listOf<RadioButton>(malyButton,duzyButton);
-        val listOfRadio = listOf<RadioButton>(malyButton,duzyButton,serButton,beconButton);
-
-//        listOfRadio.forEach { radio ->
-//            var wasChecked = false;
-//            radio.setOnTouchListener { _, event ->
-//                if (event.action == MotionEvent.ACTION_DOWN) {
-//                    wasChecked = radio.isChecked
-//                }
-//                false
-//            }
-//            radio.setOnClickListener {
-//                if (wasChecked) {
-//                    radio.isChecked = false
-//                }
-//            }
-//        }
+        val listOfAddings = listOf<CheckBox>(serCheck, beconCheck)
 
         fun alert(kwota: Int) {
             AlertDialog.Builder(this)
                 .setTitle("Kwota")
-                .setMessage("Kwota: ${kwota} zł")
+                .setMessage("Ilość Burgerów: ${iloscBurgerow} Kwota: ${kwota} zł")
                 .setPositiveButton(
                     "Ok",
                     DialogInterface.OnClickListener { dialog, which ->
@@ -68,15 +55,15 @@ class MainActivity : AppCompatActivity() {
             var podsumowanie = 0;
             listOfMainRadios.forEach { radio ->
                 if(radio.isChecked){
-                    listOfRadio.forEach{ radio ->
-                        if(radio.isChecked){
-                            podsumowanie += radio.tag as Int;
+                    podsumowanie += radio.tag as Int;
+                    listOfAddings.forEach{ check ->
+                        if(check.isChecked){
+                            podsumowanie += check.tag as Int;
                         }
+
                     }
-                    alert(podsumowanie)
-                }
-                else{
-                    Toast.makeText(this,"Dodaj Wielkość Burgera", Toast.LENGTH_LONG).show()
+                    alert(podsumowanie * iloscBurgerow.toString().toInt())
+
                 }
             }
         }

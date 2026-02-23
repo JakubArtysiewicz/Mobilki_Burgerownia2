@@ -23,6 +23,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:hint="Ilość burgerów:"
+        android:inputType="number"
+        android:text="1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,6 +40,7 @@
             android:id="@+id/malyButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:checked="true"
             android:text="Mały Burger 10 zl" />
 
         <RadioButton
@@ -45,25 +48,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Duży Burger 15zł" />
+
     </RadioGroup>
-
-    <RadioButton
-        android:id="@+id/serButton"
-        android:layout_width="408dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="184dp"
-        android:text="Ser + 2zł"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <RadioButton
-        android:id="@+id/beconButton"
-        android:layout_width="413dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="232dp"
-        android:text="Bekon + 3zł"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/ObliczButton"
@@ -71,6 +57,24 @@
         android:layout_height="70dp"
         android:layout_marginTop="308dp"
         android:text="Oblicz Zamówienie"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/serCheck"
+        android:layout_width="411dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="160dp"
+        android:text="Ser + 2zł"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/bekonCheckBox"
+        android:layout_width="408dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="224dp"
+        android:text="Bekon + 3zł"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
